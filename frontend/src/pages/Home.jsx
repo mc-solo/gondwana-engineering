@@ -1,13 +1,13 @@
 import { Link } from 'react-router-dom'
-import { ArrowRight, Award, Headset, ShieldCheck, Wrench } from 'lucide-react'
-import { images, products, services, site, whyChooseUs } from '../data/siteContent.js'
+import { ArrowRight } from 'lucide-react'
+import { images, products, services, site, testimonials } from '../data/siteContent.js'
+import { projects } from '../data/projects.js'
 import { CtaBanner, SectionHeading } from '../components/ui.jsx'
 
-const whyIcons = [ShieldCheck, Award, Wrench, Headset]
-
 export default function Home() {
-  const featuredServices = services.slice(0, 3)
+  const [featuredService, ...otherServices] = services
   const featuredProducts = products.slice(0, 4)
+  const featuredProjects = projects.slice(0, 3)
 
   return (
     <main>
@@ -15,18 +15,12 @@ export default function Home() {
         <img className="hero-image" src={images.hero} alt={images.heroAlt} />
         <div className="hero-overlay" />
         <div className="container hero-content">
-          <p className="eyebrow light">Laboratory equipment · Engineering solutions</p>
-          <h1>Reliable equipment and engineering support for modern laboratories.</h1>
-          <p className="hero-text">
-            Gondwana Engineering supplies laboratory equipment and provides practical
-            technical services, from installation and training to ongoing maintenance
-            and support.
-          </p>
+          <h1>{site.name}</h1>
+          <p className="hero-slogan">{site.tagline.charAt(0).toUpperCase() + site.tagline.slice(1)}</p>
           <div className="hero-actions">
-            <Link to="/services" className="button button-primary">Explore Our Solutions</Link>
+            <Link to="/projects" className="button button-accent">Explore Projects</Link>
             <Link to="/contact" className="button button-outline-light">Contact Us</Link>
           </div>
-          <p className="demo-note">Demo content: company details and imagery are placeholders for client review.</p>
         </div>
       </section>
 
@@ -53,17 +47,27 @@ export default function Home() {
             title="Services that support the full equipment lifecycle"
             text="From supply and installation to calibration, training and after-sales support."
           />
-          <div className="card-grid three">
-            {featuredServices.map((service) => (
-              <article className="card" key={service.id}>
-                <img src={service.image} alt={service.imageAlt} />
-                <div className="card-body">
-                  <h3>{service.title}</h3>
-                  <p>{service.short}</p>
-                  <Link to={`/services#${service.id}`} className="text-link">View service <ArrowRight size={16} aria-hidden="true" /></Link>
-                </div>
-              </article>
-            ))}
+          <div className="editorial-services">
+            <Link to={`/services#${featuredService.id}`} className="service-feature">
+              <img src={featuredService.image} alt={featuredService.imageAlt} />
+              <div className="service-feature-body">
+                <span className="service-feature-label">Featured service</span>
+                <h3>{featuredService.title}</h3>
+                <p>{featuredService.short}</p>
+              </div>
+            </Link>
+            <div className="service-list">
+              {otherServices.map((service, index) => (
+                <Link to={`/services#${service.id}`} className="service-row" key={service.id}>
+                  <span className="service-row-number">{String(index + 2).padStart(2, '0')}</span>
+                  <span>
+                    <h3>{service.title}</h3>
+                    <p>{service.short}</p>
+                  </span>
+                  <ArrowRight size={20} aria-hidden="true" className="service-row-arrow" />
+                </Link>
+              ))}
+            </div>
           </div>
           <div className="section-action">
             <Link to="/services" className="button button-secondary">View all services</Link>
@@ -72,6 +76,31 @@ export default function Home() {
       </section>
 
       <section className="section">
+        <div className="container">
+          <SectionHeading
+            eyebrow="Selected work"
+            title="Projects"
+            text="Sample projects shown for demonstration only. Replace these entries with real, client-approved projects before launch."
+          />
+          <div className="project-showcase">
+            {featuredProjects.map((project, index) => (
+              <Link to="/projects" className={`project-card ${index === 0 ? 'large' : ''}`} key={project.id}>
+                <img src={project.image} alt={project.imageAlt} />
+                <div className="project-body">
+                  <span className="project-category">{project.category}</span>
+                  <h3>{project.title}</h3>
+                  <p>{project.description}</p>
+                </div>
+              </Link>
+            ))}
+          </div>
+          <div className="section-action">
+            <Link to="/projects" className="button button-secondary">View All Projects</Link>
+          </div>
+        </div>
+      </section>
+
+      <section className="section section-tint">
         <div className="container">
           <SectionHeading
             eyebrow="Featured products"
@@ -86,7 +115,6 @@ export default function Home() {
                   <p className="product-category">{product.category}</p>
                   <h3>{product.name}</h3>
                   <p>{product.description}</p>
-                  <Link to="/contact" className="button button-outline small">Request Information</Link>
                 </div>
               </article>
             ))}
@@ -97,44 +125,22 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="section section-tint">
+      <section className="section">
         <div className="container">
           <SectionHeading
-            eyebrow="Why choose us"
-            title="A professional, practical partner"
-            text="These statements describe approach and service only. No specific certifications, awards or achievements are claimed."
+            eyebrow="Client feedback"
+            title="What Our Clients Say"
+            text="Demonstration testimonials shown for layout review only. Replace them with verified client feedback, with permission, before the public website is launched."
           />
-          <div className="feature-grid">
-            {whyChooseUs.map((item, index) => {
-              const Icon = whyIcons[index % whyIcons.length]
-              return (
-                <article className="feature" key={item.title}>
-                  <span className="feature-icon" aria-hidden="true"><Icon size={24} /></span>
-                  <h3>{item.title}</h3>
-                  <p>{item.text}</p>
-                </article>
-              )
-            })}
-          </div>
-        </div>
-      </section>
-
-      <section className="section image-led">
-        <div className="container split reverse">
-          <figure className="split-media">
-            <img src={images.showcase} alt={images.showcaseAlt} />
-          </figure>
-          <div>
-            <SectionHeading
-              eyebrow="Engineering in practice"
-              title="Equipment installed, tested and supported properly"
-              text="Placeholder section: replace this image and text with real project or facility photography and approved client wording when available."
-            />
-            <ul className="check-list">
-              <li>Installation and commissioning support</li>
-              <li>Calibration and planned maintenance</li>
-              <li>Operator training and after-sales assistance</li>
-            </ul>
+          <div className="testimonial-grid">
+            {testimonials.map((testimonial) => (
+              <article className="testimonial-card" key={testimonial.quote}>
+                <span className="testimonial-mark" aria-hidden="true">&ldquo;</span>
+                <blockquote>{testimonial.quote}</blockquote>
+                <p className="testimonial-author">{testimonial.author}</p>
+                <p className="testimonial-role">{testimonial.role}</p>
+              </article>
+            ))}
           </div>
         </div>
       </section>

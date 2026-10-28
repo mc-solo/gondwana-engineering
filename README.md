@@ -21,7 +21,8 @@ uses clearly marked placeholders.
 frontend/
   src/
     data/siteContent.js   # single file for replaceable copy, images, services, products
-    pages/                # Home, About, Services, Products, Contact
+    data/projects.js      # central projects data, clearly marked demo content
+    pages/                # Home, About, Services, Projects, Products, Contact
     components/           # Header, Footer, shared UI
     styles.css            # plain CSS, CSS variables, responsive design
 backend/

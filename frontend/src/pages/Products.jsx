@@ -1,5 +1,4 @@
 import { useMemo, useState } from 'react'
-import { Link } from 'react-router-dom'
 import { images, productCategories, products } from '../data/siteContent.js'
 import { CtaBanner, PageHero, SectionHeading } from '../components/ui.jsx'
 
@@ -45,18 +44,15 @@ export default function Products() {
           {visible.length === 0 ? (
             <p>No products in this category yet.</p>
           ) : (
-            <div className="card-grid four">
+            <div className="gallery-grid">
               {visible.map((product) => (
-                <article className="card product-card" key={product.id}>
+                <article className="gallery-card" key={product.id}>
                   <img src={product.image} alt={product.imageAlt} />
-                  <div className="card-body">
+                  <div className="gallery-body">
                     <p className="product-category">{product.category}</p>
                     <h3>{product.name}</h3>
                     <p>{product.description}</p>
                     <p className="product-spec">{product.specification}</p>
-                    <Link to={`/contact?product=${encodeURIComponent(product.name)}`} className="button button-outline small">
-                      Request Information
-                    </Link>
                   </div>
                 </article>
               ))}

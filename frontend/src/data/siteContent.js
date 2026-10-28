@@ -47,7 +47,9 @@ export const images = {
   productsHero: unsplash('photo-1532094349884-543bc11b234d'),
   productsHeroAlt: 'Laboratory glassware and research equipment',
   contactHero: unsplash('photo-1581092918056-0c4c3acd3789'),
-  contactHeroAlt: 'Engineer using a tablet during a site inspection'
+  contactHeroAlt: 'Engineer using a tablet during a site inspection',
+  projectsHero: unsplash('photo-1504328345606-18bbc8c9d7d1'),
+  projectsHeroAlt: 'Industrial engineering equipment in a facility'
 }
 
 export const services = [
@@ -190,22 +192,24 @@ export const products = [
   }
 ]
 
-export const whyChooseUs = [
+// Demonstration testimonials only. Do not present these as genuine client
+// feedback. Replace every entry with a verified testimonial, with the
+// client's permission, before the public website is launched.
+export const testimonials = [
   {
-    title: 'Professional approach',
-    text: 'Clear communication, documented work and a focus on getting the details right, from first enquiry to handover.'
+    quote: 'Placeholder testimonial: replace this quote with verified client feedback about a completed installation or support service.',
+    author: '[Placeholder client name]',
+    role: '[Placeholder role and organisation]'
   },
   {
-    title: 'Quality focus',
-    text: 'Equipment and services are selected and checked with reliability and everyday laboratory use in mind.'
+    quote: 'Placeholder testimonial: replace this quote with verified client feedback about equipment supply, calibration or training.',
+    author: '[Placeholder client name]',
+    role: '[Placeholder role and organisation]'
   },
   {
-    title: 'Technical expertise',
-    text: 'Practical engineering and laboratory knowledge applied to equipment selection, installation and support.'
-  },
-  {
-    title: 'Customer support',
-    text: 'Straightforward after-sales help, so questions about operation, care and parts are easy to resolve.'
+    quote: 'Placeholder testimonial: replace this quote with verified client feedback about after-sales support or maintenance.',
+    author: '[Placeholder client name]',
+    role: '[Placeholder role and organisation]'
   }
 ]
 
