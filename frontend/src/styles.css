@@ -78,8 +78,10 @@ p { margin-top: 0; }
 .section-action { margin-top: 36px; }
 .demo-note, .placeholder-note { color: var(--muted); font-size: 0.9rem; }
 
-/* Header: transparent at the top, solid white after a small scroll. */
-.site-header { position: fixed; top: 0; left: 0; right: 0; z-index: 50; background: transparent; border-bottom: 1px solid transparent; transition: background-color 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease; }
+/* Header: always on a solid light background, never transparent over a
+   photograph, so the dark nav links stay visible at the top of the page
+   on any hero image. White after a small scroll. */
+.site-header { position: fixed; top: 0; left: 0; right: 0; z-index: 50; background: #eaf6fc; border-bottom: 1px solid var(--line); box-shadow: 0 2px 12px rgba(38, 55, 70, 0.06); transition: background-color 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease; }
 .site-header.is-scrolled { background: #fff; border-bottom-color: var(--line); box-shadow: 0 6px 20px rgba(38, 55, 70, 0.08); }
 .header-inner { display: flex; align-items: center; justify-content: space-between; min-height: 76px; gap: 24px; }
 .brand { display: flex; align-items: center; gap: 11px; text-decoration: none; }
@@ -112,20 +114,26 @@ p { margin-top: 0; }
    content ever needs more room. The text's left padding aligns it
    with the site container: 4vw on narrower screens, and the
    container's own left margin on wider screens. */
-/* Full-page photo hero: the photograph covers the whole first screen,
-   white text is centred on a strong dark gradient, so it stays readable
-   while the worker and site stay visible around it. */
-.hero { position: relative; min-height: 100vh; min-height: 100svh; display: flex; align-items: center; justify-content: center; text-align: center; color: #fff; overflow: hidden; background: var(--navy); }
+/* Hero design: the photograph fills the whole first screen and stays
+   bright, with no black gradient. Text sits in a wide light-blue band
+   fading in at the bottom, in dark navy type, so it is spacious,
+   readable and in the site palette. Spacing is generous throughout:
+   larger headline, more air between eyebrow, headline, lead, buttons
+   and the meta line, and a wider text container than the old centred
+   column. */
+.hero { position: relative; min-height: 100vh; min-height: 100svh; overflow: hidden; background: var(--navy); }
 .hero-image, .page-hero img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
-.hero-image { object-position: 50% 50%; }
-.hero-overlay { position: absolute; inset: 0; background: linear-gradient(180deg, rgba(18, 28, 38, 0.70) 0%, rgba(18, 28, 38, 0.80) 100%); }
-.hero-content { position: relative; z-index: 1; width: 100%; max-width: 760px; margin: 0 auto; padding: 140px 4vw 80px; }
-.hero-content::before { content: ''; display: block; width: 56px; height: 4px; background: var(--red); margin: 0 auto 24px; }
-.hero-eyebrow { color: var(--primary); font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; font-size: 0.82rem; margin-bottom: 16px; }
-.hero-content h1 { color: #fff; font-weight: 800; letter-spacing: -0.03em; line-height: 1.05; font-size: clamp(2.6rem, 5.2vw, 4.2rem); margin-bottom: 16px; }
-.hero-lead { font-size: clamp(1.05rem, 1.6vw, 1.25rem); color: #eaf6fc; line-height: 1.6; max-width: 620px; margin: 0 auto 32px; }
-.hero-actions { display: flex; flex-wrap: wrap; gap: 14px; justify-content: center; }
-.hero-meta { margin-top: 32px; color: rgba(255, 255, 255, 0.85); font-size: 0.92rem; font-weight: 600; }
+.hero-image { object-position: 50% 18%; }
+.hero-band { position: absolute; left: 0; right: 0; bottom: 0; z-index: 1; padding: 120px 4vw 56px; text-align: center; color: var(--navy); background: linear-gradient(180deg, rgba(234, 246, 252, 0) 0%, rgba(234, 246, 252, 0.92) 38%, #eaf6fc 62%); }
+.hero-content { position: relative; width: 100%; max-width: 1100px; margin: 0 auto; }
+.hero-content::before { content: ''; display: block; width: 64px; height: 5px; background: var(--red); margin: 0 auto 28px; }
+.hero-eyebrow { color: var(--blue); font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; font-size: 0.85rem; margin-bottom: 20px; }
+.hero-content h1 { color: var(--navy); font-family: var(--font-heading); font-weight: 800; letter-spacing: -0.02em; line-height: 1.05; font-size: clamp(3rem, 6vw, 5rem); margin-bottom: 20px; }
+.hero-lead { font-size: clamp(1.15rem, 1.8vw, 1.35rem); color: #3a4f63; line-height: 1.7; max-width: 820px; margin: 0 auto 36px; font-weight: 500; }
+.hero-actions { display: flex; flex-wrap: wrap; gap: 16px; justify-content: center; }
+.hero-meta { margin-top: 28px; color: var(--muted); font-size: 0.95rem; font-weight: 600; letter-spacing: 0.02em; }
+.button-dark { background: var(--navy); color: #fff; }
+.button-dark:hover { background: #1e2f40; }
 .button-outline-light { border: 2px solid #fff; color: #fff; background: transparent; }
 .button-outline-light:hover { background: #fff; color: var(--navy); border-color: #fff; }
 .page-hero-overlay { position: absolute; inset: 0; background: linear-gradient(90deg, rgba(234,246,252,0.94) 0%, rgba(234,246,252,0.78) 55%, rgba(234,246,252,0.45) 100%); }
@@ -293,18 +301,18 @@ p { margin-top: 0; }
   .project-card, .project-card.large { min-height: 340px; }
   .page-hero-content { padding-top: 140px; }
 }
-/* Full-page hero on narrower screens: the overlay goes darker from top
-   to bottom, so white text stays readable even when the worker fills
-   the frame behind it. */
+/* Hero band on narrower screens: keep the light band and its fade,
+   with tighter padding so the photo still shows above it. */
 @media (max-width: 900px) {
-  .hero-overlay { background: linear-gradient(180deg, rgba(18, 28, 38, 0.45) 0%, rgba(18, 28, 38, 0.88) 78%); }
-  .hero-content { padding: 120px 4vw 64px; }
+  .hero-band { padding: 100px 4vw 48px; }
+  .hero-image { object-position: 50% 25%; }
 }
 
-/* Short viewports (for example a laptop in landscape): keep the 76px
-   header clear of the hero content without forcing extra hero height. */
+/* Short viewports (for example a laptop in landscape): keep the band
+   compact so the photo still shows above it. */
 @media (max-height: 560px) {
-  .hero-content { padding-top: 120px; padding-bottom: 48px; }
+  .hero-band { padding-top: 80px; padding-bottom: 32px; }
+  .hero-lead { margin-bottom: 24px; }
 }
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }

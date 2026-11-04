@@ -14,23 +14,25 @@ export default function Home() {
   return (
     <main>
       {/*
-        Full-page photo hero: one photograph covers the whole first
-        screen, with white text centred on a strong dark gradient so
-        it stays readable. The subtitle states what the company does,
-        taken from the company profile.
+        Hero design: the photograph fills the whole first screen and
+        stays bright, with no black gradient. The text sits in a wide
+        light-blue band fading in at the bottom, in dark navy type, so
+        it is readable, spacious and in the site palette. The subtitle
+        states what the company does, taken from the company profile.
       */}
       <section className="hero">
         <img className="hero-image" src={images.hero} alt={images.heroAlt} />
-        <div className="hero-overlay" />
-        <div className="hero-content">
-          <p className="hero-eyebrow">Civil Engineering · Addis Ababa, Ethiopia</p>
-          <h1>{site.name}</h1>
-          <p className="hero-lead">Geotechnical investigation, highway and bridge design, land survey, GIS and water well drilling, backed by our own soil laboratory and workshop.</p>
-          <div className="hero-actions">
-            <Link to="/projects" className="button button-primary">Explore Projects</Link>
-            <Link to="/contact" className="button button-outline-light">Contact Us</Link>
+        <div className="hero-band">
+          <div className="hero-content">
+            <p className="hero-eyebrow">Civil Engineering · Addis Ababa, Ethiopia</p>
+            <h1>{site.name}</h1>
+            <p className="hero-lead">Geotechnical investigation, highway and bridge design, land survey, GIS and water well drilling, backed by our own soil laboratory and workshop.</p>
+            <div className="hero-actions">
+              <Link to="/projects" className="button button-dark">Explore Projects</Link>
+              <Link to="/contact" className="button button-outline">Contact Us</Link>
+            </div>
+            <p className="hero-meta">ISO 9001:2015 Certified Company · Over 60 professionals</p>
           </div>
-          <p className="hero-meta">ISO 9001:2015 Certified Company · Over 60 professionals</p>
         </div>
       </section>
 
