@@ -9,8 +9,8 @@ export default function About() {
       <PageHero
         title="About Gondwana Engineering"
         text="Gondwana Engineering Private Limited Company (PLC), a multi-disciplinary civil engineering firm in Addis Ababa."
-        image={images.servicesHero}
-        imageAlt={images.servicesHeroAlt}
+        image={images.aboutHero}
+        imageAlt={images.aboutHeroAlt}
       />
 
       <section className="section">

@@ -18,7 +18,7 @@
 // photographs, not claimed to be company photographs.
 // ---------------------------------------------------------------------------
 
-import { heroDrillingData as heroDrilling, headOfficeData as headOffice, materialsLabData as materialsLab, heroPinData as heroPin } from '../assets/profileImages.js'
+import { heroDrillingData as heroDrilling, headOfficeData as headOffice, materialsLabData as materialsLab, heroPinData as heroPin, servicesDrillData as servicesDrill, projectsDrillData as projectsDrill, aboutSiteData as aboutSite, productsCncData as productsCnc } from '../assets/profileImages.js'
 
 const unsplash = (id, width = 1600) =>
   `https://images.unsplash.com/${id}?auto=format&fit=crop&w=${width}&q=80`
@@ -50,14 +50,16 @@ export const images = {
   aboutMainAlt: 'Gondwana Engineering head office building, from the company profile',
   aboutSecondary: materialsLab,
   aboutSecondaryAlt: 'Materials testing work in the company laboratory, from the company profile',
-  servicesHero: heroDrilling,
-  servicesHeroAlt: 'A drilling rig at a site investigation, from the company profile',
-  productsHero: materialsLab,
-  productsHeroAlt: 'Materials testing work in the company laboratory, from the company profile',
+  aboutHero: aboutSite,
+  aboutHeroAlt: 'An aerial view of a construction site with excavators and machinery, representative photograph from Pexels',
+  servicesHero: servicesDrill,
+  servicesHeroAlt: 'A drilling machine working on soil at a site, representative photograph from Pexels',
+  productsHero: productsCnc,
+  productsHeroAlt: 'A technician operating a workshop CNC machine, representative photograph from Pexels',
   contactHero: headOffice,
   contactHeroAlt: 'Gondwana Engineering head office building, from the company profile',
-  projectsHero: heroDrilling,
-  projectsHeroAlt: 'A drilling rig at a site investigation, from the company profile'
+  projectsHero: projectsDrill,
+  projectsHeroAlt: 'Workers operating a borehole drilling machine, representative photograph from Pexels'
 }
 
 export const company = {
