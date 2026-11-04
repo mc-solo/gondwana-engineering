@@ -18,7 +18,7 @@
 // photographs, not claimed to be company photographs.
 // ---------------------------------------------------------------------------
 
-import { heroDrillingData as heroDrilling, headOfficeData as headOffice, materialsLabData as materialsLab, heroEngineersData as heroEngineers } from '../assets/profileImages.js'
+import { heroDrillingData as heroDrilling, headOfficeData as headOffice, materialsLabData as materialsLab, heroSiteData as heroSite } from '../assets/profileImages.js'
 
 const unsplash = (id, width = 1600) =>
   `https://images.unsplash.com/${id}?auto=format&fit=crop&w=${width}&q=80`
@@ -40,8 +40,8 @@ export const site = {
 }
 
 export const images = {
-  hero: heroEngineers,
-  heroAlt: 'Two engineers reviewing plans at a construction site, representative photograph from Pexels',
+  hero: heroSite,
+  heroAlt: 'An African construction worker on a complex rebar site, representative photograph from Pexels',
   introduction: headOffice,
   introductionAlt: 'Gondwana Engineering head office building, from the company profile',
   showcase: heroDrilling,
