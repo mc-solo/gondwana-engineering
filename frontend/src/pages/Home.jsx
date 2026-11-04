@@ -15,10 +15,8 @@ export default function Home() {
     <main>
       {/*
         Full-page photo hero: one photograph covers the whole first
-        screen, with white text on a strong dark gradient so it stays
-        readable. The caption states that the photograph is a
-        representative photograph, not a photograph of company staff or
-        a company project. The subtitle states what the company does,
+        screen, with white text centred on a strong dark gradient so
+        it stays readable. The subtitle states what the company does,
         taken from the company profile.
       */}
       <section className="hero">
@@ -34,7 +32,6 @@ export default function Home() {
           </div>
           <p className="hero-meta">ISO 9001:2015 Certified Company · Over 60 professionals</p>
         </div>
-        <p className="hero-caption">Representative photograph, Pexels</p>
       </section>
 
       <section className="section">
