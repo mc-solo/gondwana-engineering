@@ -5,7 +5,9 @@ import { projects } from '../data/projects.js'
 import { CtaBanner, SectionHeading } from '../components/ui.jsx'
 
 export default function Home() {
-  const [featuredService, ...otherServices] = services
+  // Home shows a readable selection; the Services page lists all services.
+  const homeServices = services.slice(0, 6)
+  const [featuredService, ...otherServices] = homeServices
   const featuredProducts = products.slice(0, 4)
   const featuredProjects = projects.slice(0, 3)
 
@@ -16,10 +18,9 @@ export default function Home() {
         <div className="hero-overlay" />
         <div className="container hero-content">
           <h1>{site.name}</h1>
-          <p className="hero-slogan">{site.tagline.charAt(0).toUpperCase() + site.tagline.slice(1)}</p>
           <div className="hero-actions">
-            <Link to="/projects" className="button button-accent">Explore Projects</Link>
-            <Link to="/contact" className="button button-outline-light">Contact Us</Link>
+            <Link to="/projects" className="button button-primary">Explore Projects</Link>
+            <Link to="/contact" className="button button-outline">Contact Us</Link>
           </div>
         </div>
       </section>
@@ -29,8 +30,8 @@ export default function Home() {
           <div>
             <SectionHeading
               eyebrow="About Gondwana Engineering"
-              title="Practical engineering, built around laboratory needs"
-              text="Placeholder introduction: replace this paragraph with the client-approved company description, including what the company does and who it serves. No history, clients or certifications are claimed here until the client confirms them."
+              title="A multi-disciplinary civil engineering firm"
+              text="Gondwana Engineering Private Limited Company (PLC) is registered and licensed to conduct a wide spectrum of services in civil engineering, including geotechnical investigation, highway and bridge design, land survey, GIS and water well drilling."
             />
             <Link to="/about" className="text-link">Learn more about us <ArrowRight size={17} aria-hidden="true" /></Link>
           </div>
@@ -44,8 +45,8 @@ export default function Home() {
         <div className="container">
           <SectionHeading
             eyebrow="Our solutions"
-            title="Services that support the full equipment lifecycle"
-            text="From supply and installation to calibration, training and after-sales support."
+            title="Services from the company profile"
+            text="Geotechnical investigation, highway and bridge design, survey, GIS, water well drilling and materials testing, among the firm’s listed services."
           />
           <div className="editorial-services">
             <Link to={`/services#${featuredService.id}`} className="service-feature">
@@ -80,7 +81,7 @@ export default function Home() {
           <SectionHeading
             eyebrow="Selected work"
             title="Projects"
-            text="Sample projects shown for demonstration only. Replace these entries with real, client-approved projects before launch."
+            text="Selected major past work from the company profile, for buildings, bridges, dams and wind power projects."
           />
           <div className="project-showcase">
             {featuredProjects.map((project, index) => (
@@ -103,9 +104,9 @@ export default function Home() {
       <section className="section section-tint">
         <div className="container">
           <SectionHeading
-            eyebrow="Featured products"
-            title="Laboratory equipment, presented clearly"
-            text="Sample product cards only. Names, images and specifications are placeholders and can be replaced as real product information becomes available."
+            eyebrow="Workshop products"
+            title="Laboratory accessories and bridge steel bearings"
+            text="Items produced in the company’s workshop, as listed in the company profile. Photographs shown are representative, except where the caption says an image is from the company profile."
           />
           <div className="card-grid four">
             {featuredProducts.map((product) => (
@@ -146,8 +147,8 @@ export default function Home() {
       </section>
 
       <CtaBanner
-        title="Tell us what your laboratory needs"
-        text="Share your equipment or service enquiry and we will respond with the next steps."
+        title="Tell us about your project"
+        text="Share your investigation, design or drilling enquiry and we will respond with the next steps."
       />
     </main>
   )

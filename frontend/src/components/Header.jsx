@@ -1,15 +1,17 @@
 import { useEffect, useState } from 'react'
 import { Link, NavLink, useLocation } from 'react-router-dom'
-import { Menu, X, Hexagon } from 'lucide-react'
-import { site } from '../data/siteContent.js'
+import { Menu, X } from 'lucide-react'
+import { logoMarkData as logoMark } from '../assets/profileImages.js'
 
+// Navigation order and labels follow the November 2026 enhancement prompt:
+// Home | About Us | Services | Products | Projects | Contact.
 const links = [
   { to: '/', label: 'Home' },
-  { to: '/about', label: 'About' },
+  { to: '/about', label: 'About Us' },
   { to: '/services', label: 'Services' },
-  { to: '/projects', label: 'Projects' },
   { to: '/products', label: 'Products' },
-  { to: '/contact', label: 'Contact Us' }
+  { to: '/projects', label: 'Projects' },
+  { to: '/contact', label: 'Contact' }
 ]
 
 export default function Header() {
@@ -32,13 +34,16 @@ export default function Header() {
     <header className={`site-header ${scrolled ? 'is-scrolled' : 'is-top'}`}>
       <div className="container header-inner">
         <Link to="/" className="brand" onClick={() => setOpen(false)} aria-label="Gondwana Engineering home">
-          <span className="brand-mark" aria-hidden="true">
-            <Hexagon size={30} strokeWidth={2.2} />
-            <span className="brand-dot" />
-          </span>
+          {/*
+            Official logo mark, supplied as a 270 x 270 px JPEG. It is shown
+            at 44 px tall, well below its native size, so it stays crisp
+            (HD appearance) without upscaling or distortion. The image is
+            not stretched, cropped or recoloured.
+          */}
+          <img className="logo-mark" src={logoMark} alt="Gondwana Engineering logo" width="44" height="44" />
           <span className="brand-text">
-            <span className="brand-name">{site.logoText}</span>
-            <span className="brand-sub">{site.logoAccent}</span>
+            <span className="brand-name">Gondwana</span>
+            <span className="brand-sub">Engineering</span>
           </span>
         </Link>
 

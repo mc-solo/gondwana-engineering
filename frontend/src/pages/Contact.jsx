@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import { useSearchParams } from 'react-router-dom'
-import { Clock, Info, Mail, MapPin, Phone } from 'lucide-react'
+import { Info, Mail, MapPin, Phone, Printer } from 'lucide-react'
 import { images, site } from '../data/siteContent.js'
 import { PageHero, SectionHeading } from '../components/ui.jsx'
 
@@ -93,8 +93,8 @@ export default function Contact() {
   return (
     <main>
       <PageHero
-        title="Contact Us"
-        text="Send an enquiry about equipment, services or support. We will respond with the next steps."
+        title="Contact"
+        text="Send an enquiry about a geotechnical investigation, design, survey, drilling or materials testing project. We will respond with the next steps."
         image={images.contactHero}
         imageAlt={images.contactHeroAlt}
       />
@@ -105,13 +105,13 @@ export default function Contact() {
             <SectionHeading
               eyebrow="Get in touch"
               title="Contact information"
-              text="All contact details below are placeholders until the client confirms them."
+              text="Phone, fax and address below are from the company profile. The company email address is not given in the profile, so it is marked to be confirmed rather than invented."
             />
             <ul className="contact-details">
-              <li><Mail size={20} aria-hidden="true" /><div><strong>Email</strong><span>{site.email}</span></div></li>
               <li><Phone size={20} aria-hidden="true" /><div><strong>Phone</strong><span>{site.phone}</span></div></li>
+              <li><Printer size={20} aria-hidden="true" /><div><strong>Fax</strong><span>{site.fax}</span></div></li>
               <li><MapPin size={20} aria-hidden="true" /><div><strong>Address</strong><span>{site.address}</span></div></li>
-              <li><Clock size={20} aria-hidden="true" /><div><strong>Working hours</strong><span>{site.workingHours}</span></div></li>
+              <li><Mail size={20} aria-hidden="true" /><div><strong>Email</strong><span>{site.email}</span></div></li>
             </ul>
             <p className="notice notice-info">
               <Info size={18} aria-hidden="true" />

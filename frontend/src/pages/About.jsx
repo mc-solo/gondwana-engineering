@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom'
 import { ArrowRight, Eye, Target } from 'lucide-react'
-import { images, values } from '../data/siteContent.js'
+import { company, images } from '../data/siteContent.js'
 import { CtaBanner, PageHero, SectionHeading } from '../components/ui.jsx'
 
 export default function About() {
@@ -8,7 +8,7 @@ export default function About() {
     <main>
       <PageHero
         title="About Gondwana Engineering"
-        text="Laboratory equipment, engineering solutions and related technical services."
+        text="Gondwana Engineering Private Limited Company (PLC), a multi-disciplinary civil engineering firm in Addis Ababa."
         image={images.servicesHero}
         imageAlt={images.servicesHeroAlt}
       />
@@ -18,14 +18,12 @@ export default function About() {
           <div>
             <SectionHeading
               eyebrow="Company overview"
-              title="Placeholder company overview"
-              text="Replace this section with the client-approved company overview. It should describe what Gondwana Engineering does, the sectors it serves and how it works, without adding history, clients, partnerships or awards that have not been confirmed."
+              title="Civil engineering, geotechnical investigation and drilling"
+              text={company.overview}
             />
-            <p>
-              This demo is intentionally neutral: it presents the company as a professional
-              engineering and laboratory equipment provider, while leaving every factual
-              claim for the client to approve.
-            </p>
+            <p>{company.staff}</p>
+            <p>{company.facilities}</p>
+            <p><strong>Certification stated in the profile:</strong> ISO 9001:2015 Certified Company.</p>
           </div>
           <figure className="split-media">
             <img src={images.aboutMain} alt={images.aboutMainAlt} />
@@ -39,12 +37,12 @@ export default function About() {
             <article className="statement-card">
               <span className="feature-icon" aria-hidden="true"><Target size={24} /></span>
               <h2>Our mission</h2>
-              <p>[Mission statement to be supplied by the client.]</p>
+              <p>{company.mission}</p>
             </article>
             <article className="statement-card">
               <span className="feature-icon" aria-hidden="true"><Eye size={24} /></span>
               <h2>Our vision</h2>
-              <p>[Vision statement to be supplied by the client.]</p>
+              <p>{company.vision}</p>
             </article>
           </div>
         </div>
@@ -53,18 +51,15 @@ export default function About() {
       <section className="section">
         <div className="container">
           <SectionHeading
-            eyebrow="Core values"
-            title="How we aim to work"
-            text="Sample values for review. Replace the wording with the client-approved values."
+            eyebrow="Goals"
+            title="What the company is working towards"
+            text="Goals as stated in the company profile. The ISO/IEC 17025 laboratory accreditation listed here is a goal, not a certification already held."
           />
-          <div className="feature-grid">
-            {values.map((value) => (
-              <article className="feature" key={value.title}>
-                <h3>{value.title}</h3>
-                <p>{value.text}</p>
-              </article>
+          <ul className="check-list">
+            {company.goals.map((goal) => (
+              <li key={goal}>{goal}</li>
             ))}
-          </div>
+          </ul>
         </div>
       </section>
 
@@ -75,9 +70,9 @@ export default function About() {
           </figure>
           <div>
             <SectionHeading
-              eyebrow="Company image"
-              title="Placeholder for client photography"
-              text="Replace this image with an approved company, team or facility photograph. Captions, staff details and project examples should only be added once confirmed by the client."
+              eyebrow="Materials testing laboratory"
+              title="Testing from the company’s own laboratory"
+              text="The company has a well-established soil laboratory furnished with modern equipment to carry out a variety of tests related to civil engineering construction, coupled with site investigation through drilling, pitting and DCP testing."
             />
             <Link to="/contact" className="button button-primary">
               Work with us <ArrowRight size={18} aria-hidden="true" />

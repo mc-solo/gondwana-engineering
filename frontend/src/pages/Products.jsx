@@ -13,8 +13,8 @@ export default function Products() {
   return (
     <main>
       <PageHero
-        title="Products"
-        text="Sample laboratory equipment categories and products. Real models, specifications and pricing can be added later."
+        title="Workshop Products"
+        text="Laboratory accessories and bridge steel bearings produced in Gondwana Engineering’s workshop, as listed in the company profile."
         image={images.productsHero}
         imageAlt={images.productsHeroAlt}
       />
@@ -22,9 +22,9 @@ export default function Products() {
       <section className="section">
         <div className="container">
           <SectionHeading
-            eyebrow="Product catalogue"
+            eyebrow="Workshop catalogue"
             title="Browse by category"
-            text="This layout is reusable: add a product to the central content file and it appears here automatically."
+            text="Photographs shown are representative, except where the caption says an image is from the company profile. Further specifications are to be confirmed for individual items."
           />
 
           <div className="filter-bar" role="group" aria-label="Filter products by category">
@@ -62,8 +62,8 @@ export default function Products() {
       </section>
 
       <CtaBanner
-        title="Looking for a specific model?"
-        text="If you do not see the equipment you need, send us the model or specification and we will check availability."
+        title="Looking for a specific accessory?"
+        text="If you do not see the item you need, contact us with the item and specification and we will check what the workshop can produce."
       />
     </main>
   )

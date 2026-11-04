@@ -1,12 +1,16 @@
 # Gondwana Engineering — Professional Company Website (Demo)
 
-A polished, mostly static company website demo for **Gondwana Engineering**, an
-engineering company specialising in laboratory equipment, engineering solutions
-and related technical services.
+A polished, mostly static company website demo for **Gondwana Engineering
+Private Limited Company (PLC)**, a multi-disciplinary civil engineering firm
+in Addis Ababa, covering geotechnical investigation, highway and bridge
+design, land survey, GIS, water well drilling and materials testing.
 
-The purpose of this demo is client approval. Real images, company information,
-product details and contact details have **not** been supplied yet, so the site
-uses clearly marked placeholders.
+Company facts on this site come from the supplied company profile
+(`Brief_Company_Profile__Geotechnical.docx`, November 2026), not from the
+earlier laboratory-equipment demo copy. The official logo files are in
+`frontend/src/assets/` (`logo-mark.jpg` and `logo-full.jpg`). Testimonials
+remain clearly marked demonstration placeholders, because the profile refers
+to testimonial letters without including their text.
 
 ## Stack
 
@@ -20,8 +24,9 @@ uses clearly marked placeholders.
 ```text
 frontend/
   src/
-    data/siteContent.js   # single file for replaceable copy, images, services, products
-    data/projects.js      # central projects data, clearly marked demo content
+    data/siteContent.js   # single file for replaceable copy, services, workshop products
+    data/projects.js      # central projects data, taken from the company profile
+    assets/profileImages.js  # official logos and profile photographs, as data URLs so the site is self-contained on GitHub Pages
     pages/                # Home, About, Services, Projects, Products, Contact
     components/           # Header, Footer, shared UI
     styles.css            # plain CSS, CSS variables, responsive design
@@ -79,20 +84,32 @@ The contact form has client-side and server-side validation.
 - To add email later, choose a provider, set `EMAIL_PROVIDER` in the backend
   environment, and implement `sendContactEmail()` in `backend/src/lib/email.js`.
 
-## Replacing placeholders for launch
+## Still needed before a public launch
 
-1. Edit `frontend/src/data/siteContent.js`:
-   - company description, mission, vision and values
-   - email, phone, address, working hours and social links
-   - service descriptions and product names/specifications
-   - every image URL (replace Unsplash placeholders with client images)
-2. Replace the logo placeholder in the header (`Hexagon` icon + text in
-   `frontend/src/components/Header.jsx`) with the real logo.
-3. Configure email on the backend (see above).
-4. Remove or replace demo notices on the Home and Contact pages.
+1. Company slogan: the profile gives no slogan, so none is shown. Supply one
+   if the company has an official slogan.
+2. Company email address and social media links: neither is given in the
+   profile, so the site marks email as to be confirmed and lists no social
+   links.
+3. Higher-resolution logo files: the supplied logos are 270 x 270 px (mark)
+   and 323 x 324 px (full lockup). They are displayed below native size to
+   stay crisp, but a vector or larger original would be better for large use.
+   The supplied photographs are likewise embedded as data URLs in
+   `profileImages.js`, which makes the JavaScript bundle about 783 KB
+   (488 KB gzipped); replacing them with hosted originals later would
+   reduce that size.
+4. Project photographs: project cards use representative photographs, except
+   where an image is captioned as from the company profile. Supply
+   project-specific photographs if they are to be shown as actual projects.
+5. Testimonials: replace the clearly marked demonstration placeholders with
+   verified client feedback, with permission.
+6. Configure email on the backend (see above).
+7. Remove or replace demo notices on the Home and Contact pages.
 
 ## What is intentionally not claimed
 
-This demo does not invent company history, clients, certifications,
-partnerships, addresses, awards or product specifications. Anything not yet
-confirmed by the client is labelled as a placeholder or sample.
+This site does not invent company history, clients, certifications,
+partnerships, addresses, awards or product specifications. The laboratory's
+ISO/IEC 17025 accreditation is a goal stated in the profile, not a
+certification, and is never presented as certified. Anything not yet
+confirmed is labelled as a placeholder or to be confirmed.

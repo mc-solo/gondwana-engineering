@@ -15,7 +15,7 @@ export default function Projects() {
     <main>
       <PageHero
         title="Our Projects"
-        text="A selection of laboratory and engineering work, shown for demonstration. Real project details can replace these samples as they are approved."
+        text="Selected major past work from the company profile. Photographs shown are representative, except where the caption says an image is from the company profile."
         image={images.projectsHero}
         imageAlt={images.projectsHeroAlt}
       />
@@ -24,8 +24,8 @@ export default function Projects() {
         <div className="container">
           <SectionHeading
             eyebrow="Project gallery"
-            title="Work in laboratory and industrial settings"
-            text="Filter by category, or browse the full gallery. Hover or focus a project card to see what its scope covers."
+            title="Geotechnical investigation for buildings, bridges, dams and wind power"
+            text="Filter by category, or browse the full gallery. Each card shows the period, client and location given in the company profile, and the scope of work it covers."
           />
 
           <div className="filter-bar" role="group" aria-label="Filter projects by category">
@@ -52,6 +52,7 @@ export default function Projects() {
                   <div className="gallery-body">
                     <p className="product-category">{project.category}</p>
                     <h3>{project.title}</h3>
+                    <p className="project-meta">{project.period} · {project.client}{project.location ? ` · ${project.location}` : ''}</p>
                     <p>{project.description}</p>
                     <div className="project-tags" aria-label="Project scope">
                       {project.scope.map((item) => (
@@ -68,7 +69,7 @@ export default function Projects() {
 
       <CtaBanner
         title="Have a project in mind?"
-        text="Tell us about your laboratory or facility and we will discuss the equipment and support it needs."
+        text="Tell us about your building, bridge, dam or road project and we will discuss the investigation it needs."
       />
     </main>
   )

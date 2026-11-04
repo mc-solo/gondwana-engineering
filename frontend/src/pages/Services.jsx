@@ -8,7 +8,7 @@ export default function Services() {
     <main>
       <PageHero
         title="Our Services"
-        text="Practical support for laboratory equipment, from selection and installation to maintenance and training."
+        text="Civil engineering services from the company profile: geotechnical investigation, highway and bridge design, survey, GIS, water well drilling and materials testing."
         image={images.servicesHero}
         imageAlt={images.servicesHeroAlt}
       />
@@ -17,8 +17,8 @@ export default function Services() {
         <div className="container">
           <SectionHeading
             eyebrow="Services at a glance"
-            title="Choose the support your laboratory needs"
-            text="All descriptions are sample content for client review and can be replaced with confirmed service details."
+            title="Choose the service your project needs"
+            text="Services as listed in the company profile. Where a service scope is not detailed in the profile, that is stated rather than invented."
           />
           <div className="card-grid three">
             {services.map((service) => (
@@ -63,7 +63,7 @@ export default function Services() {
 
       <CtaBanner
         title="Not sure which service fits?"
-        text="Describe your equipment or project and we will point you to the most relevant option."
+        text="Describe your building, bridge, dam, road or well project and we will point you to the most relevant option."
       />
     </main>
   )
