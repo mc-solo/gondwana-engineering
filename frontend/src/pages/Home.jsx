@@ -13,16 +13,31 @@ export default function Home() {
 
   return (
     <main>
+      {/*
+        Split hero, rebuilt for contrast: the text sits on a solid light
+        panel, never on top of the photograph, so it stays fully readable
+        at every size. The photograph panel is clean and unobstructed, and
+        its caption states that it is a representative photograph, not a
+        photograph of company staff or a company project. The subtitle
+        states what the company does, taken from the company profile.
+      */}
       <section className="hero">
-        <img className="hero-image" src={images.hero} alt={images.heroAlt} />
-        <div className="hero-overlay" />
-        <div className="container hero-content">
-          <h1>{site.name}</h1>
-          <div className="hero-actions">
-            <Link to="/projects" className="button button-primary">Explore Projects</Link>
-            <Link to="/contact" className="button button-outline">Contact Us</Link>
+        <div className="hero-text">
+          <div className="hero-content">
+            <p className="hero-eyebrow">Civil Engineering · Addis Ababa, Ethiopia</p>
+            <h1>{site.name}</h1>
+            <p className="hero-lead">Geotechnical investigation, highway and bridge design, land survey, GIS and water well drilling, backed by our own soil laboratory and workshop.</p>
+            <div className="hero-actions">
+              <Link to="/projects" className="button button-primary">Explore Projects</Link>
+              <Link to="/contact" className="button button-outline">Contact Us</Link>
+            </div>
+            <p className="hero-meta">ISO 9001:2015 Certified Company · Over 60 professionals</p>
           </div>
         </div>
+        <figure className="hero-media">
+          <img className="hero-image" src={images.hero} alt={images.heroAlt} />
+          <figcaption>Representative photograph, Pexels</figcaption>
+        </figure>
       </section>
 
       <section className="section">

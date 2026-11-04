@@ -11,12 +11,14 @@
 // those fields are marked to be confirmed instead of using a made-up address.
 // The laboratory's ISO/IEC 17025 accreditation is a stated goal in the
 // profile, not a certification, so it is never presented as certified.
-// Images: hero-drilling, head-office and materials-lab are photographs from
-// the supplied profile document. All other images are representative
-// professional photographs, not claimed to be company photographs.
+// Images: head-office, hero-drilling and materials-lab are photographs from
+// the supplied profile document. The home hero photograph is a representative
+// Pexels photograph (see profileImages.js for its source page), not a
+// company photograph. All other images are representative professional
+// photographs, not claimed to be company photographs.
 // ---------------------------------------------------------------------------
 
-import { heroDrillingData as heroDrilling, headOfficeData as headOffice, materialsLabData as materialsLab } from '../assets/profileImages.js'
+import { heroDrillingData as heroDrilling, headOfficeData as headOffice, materialsLabData as materialsLab, heroEngineersData as heroEngineers } from '../assets/profileImages.js'
 
 const unsplash = (id, width = 1600) =>
   `https://images.unsplash.com/${id}?auto=format&fit=crop&w=${width}&q=80`
@@ -38,8 +40,8 @@ export const site = {
 }
 
 export const images = {
-  hero: heroDrilling,
-  heroAlt: 'A drilling rig at a site investigation, from the company profile',
+  hero: heroEngineers,
+  heroAlt: 'Two engineers reviewing plans at a construction site, representative photograph from Pexels',
   introduction: headOffice,
   introductionAlt: 'Gondwana Engineering head office building, from the company profile',
   showcase: heroDrilling,
