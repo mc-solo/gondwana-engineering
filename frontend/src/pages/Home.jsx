@@ -49,10 +49,20 @@ export default function Home() {
             text="Geotechnical investigation, highway and bridge design, survey, GIS, water well drilling and materials testing, among the firm’s listed services."
           />
           <div className="editorial-services">
+            {/*
+              Numbering cause, fixed here rather than by hardcoding a
+              visible number: the featured card is the first service in
+              homeServices, but it carried no number, while the rows below
+              were numbered index + 2 because they follow it. That made
+              the section appear to start at 02. The featured card is now
+              numbered 01 and the rows keep their correct 02 to 06, so the
+              sequence stays correct if services are added, removed or
+              reordered in the central data file.
+            */}
             <Link to={`/services#${featuredService.id}`} className="service-feature">
               <img src={featuredService.image} alt={featuredService.imageAlt} />
               <div className="service-feature-body">
-                <span className="service-feature-label">Featured service</span>
+                <span className="service-feature-label">01 · Featured service</span>
                 <h3>{featuredService.title}</h3>
                 <p>{featuredService.short}</p>
               </div>

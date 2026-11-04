@@ -2,11 +2,17 @@
   --navy: #263746;
   --navy-dark: #1d2b38;
   --navy-light: #3a4f63;
-  --blue: #2f7aa8;
-  --blue-dark: #23617f;
+  /* Logo accents, sampled from the supplied official logo mark: the
+     dominant non-white blue is #0000F0 and the accent red is #F00000.
+     They are used only for small text and structural accents (eyebrow,
+     links, icons, nav underline, service numbers, testimonial marks,
+     hero bar, CTA border). Large surfaces stay light blue #A8D8F0,
+     #EAF6FC and white, so the saturated logo colors never dominate. */
+  --blue: #0000F0;
+  --blue-dark: #0000CC;
   --blue-soft: #EAF6FC;
-  --red: #c8102e;
-  --red-dark: #9e0c24;
+  --red: #F00000;
+  --red-dark: #CC0000;
   --ink: #263746;
   --muted: #52606e;
   --line: #cfe6f2;
@@ -53,12 +59,8 @@ p { margin-top: 0; }
 .button-primary:hover { background: #8fc9e6; }
 .button-secondary { background: #d6eefb; color: #263746; border-color: #A8D8F0; }
 .button-secondary:hover { background: #A8D8F0; }
-.button-accent { background: var(--red); color: #fff; }
-.button-accent:hover { background: var(--red-dark); }
 .button-outline { background: transparent; color: var(--navy); border-color: var(--navy); }
 .button-outline:hover { background: var(--bg-tint); }
-.button-outline-light { background: transparent; color: #263746; border-color: #263746; }
-.button-outline-light:hover { background: rgba(255,255,255,0.6); }
 .button-light { background: #fff; color: var(--navy); }
 .button-light:hover { background: var(--blue-soft); }
 .button.small { padding: 10px 16px; font-size: 0.92rem; }
@@ -95,9 +97,21 @@ p { margin-top: 0; }
 .nav-toggle { display: none; background: #fff; border: 1px solid var(--line); border-radius: var(--radius-sm); padding: 8px; color: var(--navy); cursor: pointer; }
 .site-header.is-scrolled .nav-toggle { color: var(--navy); border-color: var(--line); }
 
-/* Hero: company name, slogan and two buttons only. */
-.hero { position: relative; min-height: 760px; display: flex; align-items: center; color: var(--navy); overflow: hidden; background: var(--bg-tint); }
+/* Hero: company name and two buttons only. No slogan is shown because the
+   company profile supplies none; none is invented here.
+   Full first screen: min-height (not a fixed height) of 100svh, with a
+   100vh fallback for browsers without svh units. The fixed 76px header
+   overlays the hero, so hero-content keeps generous top padding and the
+   hero grows taller if its content ever needs more room; nothing inside
+   the hero scrolls on its own.
+   The hero photograph is 674 x 489 px, with the drilling rig centred
+   slightly left and its tower near the top. object-position 42% 35%
+   keeps the rig and its tower in frame when cover cropping cuts the
+   image on very wide or very tall viewports, instead of the default
+   centre crop cutting the tower top or the rig base. */
+.hero { position: relative; min-height: 100vh; min-height: 100svh; display: flex; align-items: center; color: var(--navy); overflow: hidden; background: var(--bg-tint); }
 .hero-image, .page-hero img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.hero-image { object-position: 42% 35%; }
 .hero-overlay, .page-hero-overlay { position: absolute; inset: 0; background: linear-gradient(90deg, rgba(234,246,252,0.94) 0%, rgba(234,246,252,0.78) 55%, rgba(234,246,252,0.45) 100%); }
 .hero-content { position: relative; padding: 170px 0 96px; max-width: 1180px; }
 .hero-content::before { content: ''; display: block; width: 56px; height: 4px; background: var(--red); margin-bottom: 24px; }
@@ -214,7 +228,6 @@ p { margin-top: 0; }
 .site-footer a { color: var(--muted); text-decoration: none; }
 .site-footer a:hover { color: var(--navy); text-decoration: underline; }
 .footer-contact li { display: flex; gap: 10px; align-items: flex-start; }
-.social-links { display: flex !important; flex-wrap: wrap; gap: 16px !important; }
 .footer-bottom { border-top: 1px solid var(--line); padding: 20px 0; font-size: 0.9rem; }
 .footer-bottom p { margin: 0; }
 
@@ -259,7 +272,7 @@ p { margin-top: 0; }
   .primary-nav.is-open { display: flex; }
   .primary-nav ul { flex-direction: column; gap: 12px; }
   .site-header.is-scrolled .primary-nav a:not(.button) { color: var(--ink); }
-  .hero { min-height: 640px; }
+  .hero { min-height: 100vh; min-height: 100svh; }
   .hero-content { padding-top: 150px; }
   .hero-overlay { background: linear-gradient(180deg, rgba(234,246,252,0.94), rgba(234,246,252,0.78)); }
   .card-grid.three, .card-grid.four, .card-grid.two, .feature-grid, .testimonial-grid, .gallery-grid { grid-template-columns: 1fr; }
@@ -269,6 +282,11 @@ p { margin-top: 0; }
   .service-row { grid-template-columns: 36px 1fr 22px; padding: 18px; }
   .project-card, .project-card.large { min-height: 340px; }
   .page-hero-content { padding-top: 140px; }
+}
+/* Short viewports (for example a laptop in landscape): keep the 76px
+   header clear of the hero content without forcing extra hero height. */
+@media (max-height: 560px) {
+  .hero-content { padding: 120px 0 48px; }
 }
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
